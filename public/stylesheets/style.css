@@ -679,12 +679,20 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .top-16 {
@@ -707,9 +715,28 @@ video {
   z-index: 20;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mb-2 {
@@ -730,6 +757,30 @@ video {
 
 .mt-3 {
   margin-top: 0.75rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .inline {
@@ -756,6 +807,50 @@ video {
   height: 100vh;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[calc\(\)\] {
+  height: calc();
+}
+
+.h-\[calc\(100\%\)\] {
+  height: calc(100%);
+}
+
+.h-\[calc\(100\%-\)\] {
+  height: calc(100% - );
+}
+
+.h-\[calc\(100\%-9\)\] {
+  height: calc(100% - 9);
+}
+
+.h-\[calc\(100\%-90\)\] {
+  height: calc(100% - 90);
+}
+
+.h-\[calc\(100\%-90px\)\] {
+  height: calc(100% - 90px);
+}
+
+.h-\[calc\(100\%-1000px\)\] {
+  height: calc(100% - 1000px);
+}
+
+.h-\[calc\(100\%-100px\)\] {
+  height: calc(100% - 100px);
+}
+
+.h-\[calc\(100\%-200px\)\] {
+  height: calc(100% - 200px);
+}
+
 .w-24 {
   width: 6rem;
 }
@@ -780,8 +875,32 @@ video {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
+.w-\[calc\(100\%-205\%\)\] {
+  width: calc(100% - 205%);
+}
+
+.w-\[calc\(100\%-20\*\)\] {
+  width: calc(100% - 20 * );
+}
+
+.w-\[calc\(100\%-20\*5\%\)\] {
+  width: calc(100% - 20 * 5%);
+}
+
+.w-\[calc\(100\%-20\%\)\] {
+  width: calc(100% - 20%);
+}
+
 .max-w-\[1200px\] {
   max-width: 1200px;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
 
 .cursor-pointer {
@@ -798,6 +917,18 @@ video {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.content-start {
+  align-content: flex-start;
 }
 
 .content-around {
@@ -852,6 +983,14 @@ video {
   overflow: hidden;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -879,6 +1018,11 @@ video {
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .bg-black {
@@ -911,12 +1055,25 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.decoration-slice {
+  -webkit-box-decoration-break: slice;
+          box-decoration-break: slice;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
 
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
@@ -964,12 +1121,30 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 
 .text-center {
@@ -1011,6 +1186,30 @@ video {
 
 .underline {
   text-decoration-line: underline;
+}
+
+.decoration-slate-200 {
+  text-decoration-color: #e2e8f0;
+}
+
+.decoration-red-200 {
+  text-decoration-color: #fecaca;
+}
+
+.decoration-red-700 {
+  text-decoration-color: #b91c1c;
+}
+
+.decoration-8 {
+  text-decoration-thickness: 8px;
+}
+
+.decoration-4 {
+  text-decoration-thickness: 4px;
+}
+
+.decoration-1 {
+  text-decoration-thickness: 1px;
 }
 
 .shadow-md {
@@ -1141,6 +1340,34 @@ video {
 
   .md\:w-\[calc\(100\%-200px\)\] {
     width: calc(100% - 200px);
+  }
+
+  .md\:w-\[\] {
+    width: ;
+  }
+
+  .md\:w-\[calc\] {
+    width: calc;
+  }
+
+  .md\:w-\[calc\(\)\] {
+    width: calc();
+  }
+
+  .md\:w-\[calc\(100\)\] {
+    width: calc(100);
+  }
+
+  .md\:w-\[calc\(100\%\)\] {
+    width: calc(100%);
+  }
+
+  .md\:w-\[calc\(100\%-50\)\] {
+    width: calc(100% - 50);
+  }
+
+  .md\:w-\[calc\(100\%-50px\)\] {
+    width: calc(100% - 50px);
   }
 
   .md\:justify-around {

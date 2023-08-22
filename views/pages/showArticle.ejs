@@ -1,10 +1,11 @@
 <%- include ("../partials/head.ejs") %> <%- include ("../partials/header.ejs") %>
-<div class="flex flex-col mx-auto w-full mt-3 justify-center items-center text-center">
-    <h1 class="text-2xl"><%= article.title %></h1>
-    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
-    <div class="w-full md:px-4 mx-auto flex flex-col text-gray-600 justify-center text-center">
-     <div class="body">
-        <%- article.body %>
-     </div>
+
+<div class="overflow-hidden flex flex-col py-5 h-full ">
+    <h1 class="text-2xl text-center "><%= article.title %></h1>
+    <hr class="self-center w-[calc(100%-20%)] mt-2 mb-6" />
+    <div class="mx-3 overflow-hidden border rounded-md p-3 text-gray-600">
+        <div class="overflow-auto h-full "><%- article.body %></div>
+    </div>
 </div>
+
 <%- include ("../partials/footer.ejs") %>

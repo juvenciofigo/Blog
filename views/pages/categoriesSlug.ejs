@@ -1,13 +1,16 @@
 <%- include ("../partials/head.ejs") %> <%- include ("../partials/header.ejs") %>
-<div class="flex flex-col mx-auto w-full mt-3 justify-center items-center text-center">
+<div class="flex border flex-col mx-auto w-full mt-3 justify-center content-start items-center text-center">
     <h1 class="text-2xl"><%= catSlug.title %></h1>
-    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
-    <div class="w-full md:px-4 mx-auto flex flex-col text-gray-600 justify-center text-center">
+    <hr class=" w-[calc(100%-15%)] mt-2 mb-8" />
+
+ 
+
+    <div class="w-full md:px-4 content-center flex flex-col text-gray-600 ">
         <% articles.forEach(article => { %>
         <div class="w-full max-w-[1200px] bg-white border py-2 border-t-2 shadow-md rounded-lg overflow-hidden">
             <h2 class="bg-slate-300 mb-2 text-xl leading-9"><%= article.title %></h2>
 
-            <button class="botao"><a href="/articles/<%= article.slug %>">Ler artigo</a></button>
+            <button class="botao"><a class="whitespace-nowrap" href="/articles/<%= article.slug %>">Ler artigo</a></button>
         </div>
         <br />
         <% }) %>
