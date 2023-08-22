@@ -1,0 +1,14 @@
+<%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerAdmin.ejs") %>
+<div class="flex flex-col border rounded-md mx-auto p-3 w-[calc(100%-40px)] md:w-[calc(100%-200px)] mt-3 text-center">
+    <h1 class="text-2xl">Atualização de categoria</h1>
+    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
+
+    <form action="/admin/categories/update" method="post" class="flex flex-col gap-2 py-4">
+        <label class="">
+            <input type="hidden" required name="id" value="<%= category.id %>" />
+            <input class="texto" required type="text" name="title" id="" value="<%= category.title %>" placeholder='Defina um novo título para "<%= category.title %>"' />
+        </label>
+        <button type="submit" class="botao">Atualizar</button>
+    </form>
+</div>
+<%- include ("../../../partials/footer.ejs") %>

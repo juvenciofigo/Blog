@@ -1,0 +1,10 @@
+<%- include ("../partials/head.ejs") %> <%- include ("../partials/header.ejs") %>
+<div class="flex flex-col mx-auto w-full mt-3 justify-center items-center text-center">
+    <h1 class="text-2xl"><%= article.title %></h1>
+    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
+    <div class="w-full md:px-4 mx-auto flex flex-col text-gray-600 justify-center text-center">
+     <div class="body">
+        <%- article.body %>
+     </div>
+</div>
+<%- include ("../partials/footer.ejs") %>

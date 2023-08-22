@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .botao {
+        @apply w-max bg-green-600 rounded-md px-2 text-white hover:bg-green-500 active:bg-green-700 active:scale-95 transition-all duration-500;
+    }
+    .botaoSimples {
+        @apply w-max rounded-md px-2 text-white active:scale-95 transition-all duration-500;
+    }
+    .texto {
+        @apply py-1 rounded-md px-2 border placeholder:italic placeholder:text-slate-400 shadow-sm w-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1;
+    }
+    .delete-btn {
+        @apply botaoSimples bg-red-600 hover:bg-red-500 active:bg-red-600;
+    }
+    .edit-btn {
+        @apply botaoSimples  bg-yellow-600 hover:bg-yellow-500 active:bg-yellow-600;
+    }
+    .trtd {
+        @apply py-1;
+    }
+    .areaTexto{
+        @apply overflow-y-auto snap-none resize-none h-auto placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-1 pl-2 pr-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1
+    }
+    .blackw{
+        @apply hover:bg-white  hover:text-black
+    }
+}

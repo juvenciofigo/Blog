@@ -1,0 +1,24 @@
+<header class="bg-blue-600 h-14 flex text-white items-center">
+    <nav class="flex flex-row justify-between w-full px-4">
+        <div class="flex flex-row flex-wrap gap-3">
+            <a href="/" class="hover:scale-y-110 transition-all duration-300">GuiaPress</a>
+
+            <div class="group relative">
+                <a href="/categorias">Categorias</a>
+                <div class="px-3 py-1 rounded-md absolute top-5 flex-col bsolute text-center group-hover:flex hidden bg-blue-400">
+                    <% if (categories.length === 0) { %>
+                    <p>Sem categorias disponíveis</p>
+                    <% } else { %> <% categories.forEach(category => { %>
+                    <a class="blackw" href="/categoria/<%= category.slug %>"><%= category.title %></a>
+
+                    <% }) %> <% } %>
+                </div>
+            </div>
+            <a href="/articles">Artigos</a>
+        </div>
+
+        <div class="self-end">
+            <a href="/admin">Entrar</a>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,60 @@
+<%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerAdmin.ejs") %>
+<div class="flex flex-col mx-auto w-full mt-3 justify-center items-center text-center">
+    <h1 class="text-2xl">Categories adm</h1>
+    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
+
+    <div class="w-full md:px-4 mx-auto flex flex-col justify-center text-center">
+        <div class="md:hidden flex flex-row mx-auto mb-3 gap-9">
+            <form action="/admin/categories/edit/" id="categoryForm" >
+                <button class="edit-btn">Editar</button>
+                <input
+                    autocomplete="off"
+                    type="number"
+                    required
+                    name="category_id"
+                    id="category_id"
+                    class="w-[50px] overflow-hidden py-1 rounded-md px-2 border placeholder:italic placeholder:text-slate-400 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1" />
+            </form>
+            <form method="post" action="/admin/categories/delete" onsubmit="confirmDelete(event, this)">
+                <button class="delete-btn">Deletar</button>
+                <input
+                    size="1"
+                    autocomplete="off"
+                    type="number"
+                    name="id"
+                    required
+                    class="w-[50px] py-1 rounded-md px-2 border placeholder:italic placeholder:text-slate-400 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1" />
+            </form>
+        </div>
+
+        <table class="w-full mx-auto max-w-[1200px] bg-white shadow-md rounded-lg overflow-hidden">
+            <thead class="bg-gray-200 text-gray-700">
+                <tr>
+                    <th class="py-3 px-6 text-center">Id</th>
+                    <th class="py-3 px-6 text-center">Título</th>
+                    <th class="py-3 px-6 text-center">Slug</th>
+                    <th class="hidden md:block py-3 px-6 text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-600">
+                <% categories.forEach(category => { %>
+                <tr class="border-b border-gray-200">
+                    <td class="trtd border-l"><%= category.id %></td>
+                    <td class="trtd border-l"><%= category.title %></td>
+                    <td class="trtd border-l"><%= category.slug %></td>
+                    <td class="hidden trtd border-l md:flex flex-wrap justify-around content-around md:justify-around">
+                        <form action="/admin/categories/edit/<%= category.id %>">
+                            <button class="edit-btn">Editar</button>
+                        </form>
+                        <form method="post" action="/admin/categories/delete" class="inline" onsubmit="confirmDelete(event, this)">
+                            <input type="hidden" name="id" value="<%= category.id %>" />
+                            <button class="delete-btn">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include ("../../../partials/footer.ejs") %>

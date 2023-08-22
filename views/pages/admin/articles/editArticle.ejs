@@ -1,0 +1,55 @@
+<%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerAdmin.ejs") %>
+
+<div class="overflow-auto">
+    <div class="flex flex-col rounded-md mx-auto px-3 py-1 w-[calc(100%-40px)] md:w-[calc(100%-200px)] mt-3 text-center">
+        <h1 class="text-2xl">Actualizar Artigo</h1>
+        <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
+
+        <form action="/articles/update" method="post" class="flex flex-col gap-2 py-4">
+            <input type="hidden" name="id" value="<%= article.id %>">
+            <label class="">
+                <input required class="texto" value="<%= article.title %>" placeholder="Defina o título do artigo" type="text" name="title" />
+            </label>
+            <textarea placeholder="Escreva o artigo aqui" name="body" id="tinymce" cols="30" rows="5" v> </textarea>
+            <label role="menu" class="self-start border px-3 pb-2 rounded-md">
+                <p>Categoria</p>
+                <select required role="" name="category" id="" class="border px-1">
+               disabled>Selecione uma categoria</option>
+                    <% categories.forEach((category) => { %> <% if (category.id == article.categoryId) { %>
+                    <option value="<%= category.id %>" selected><%= category.title %></option>
+                    <% } else { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                    <% } %> <% }) %>
+                </select>
+            </label>
+            <button type="submit" class="botao">Actualizar</button>
+        </form>
+    </div>
+</div>
+<div id="content" class="hidden"><%- article.body %></div>
+<script>
+    tinymce.init({
+        selector: "#tinymce",
+        language: "pt_PT",
+        activeEditor: true,
+        plugins:
+            "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
+        toolbar:
+            "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+        mergetags_list: [
+            { value: "First.Name", title: "First Name" },
+            { value: "Email", title: "Email" },
+        ],
+        ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        init_instance_callback: () => {
+            const contentElement = document.getElementById("content");
+            const tinymceEditor = tinymce.get("tinymce");
+            if (contentElement && tinymceEditor) {
+                tinymceEditor.setContent(contentElement.innerHTML);
+            }
+        },
+    });
+</script>
+<%- include ("../../../partials/footer.ejs") %>
