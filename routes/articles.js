@@ -8,7 +8,17 @@ const Article = require("../models/Articles");
 
 // Show all articles
 
-router.get("/articles", function (req, res) {
+router.get("/articles/page/:num", (req, res) => {
+    var page = req.params.page
+
+    Article.findAndCountAll().then((article)=>{
+        res.json(article);
+    })
+});
+
+
+
+router.get("/articles", (req, res) => {
     Article.findAll().then((article) => {
         Category.findAll().then((categories) => {
             res.render("./pages/articles", { articles: article, categories: categories });

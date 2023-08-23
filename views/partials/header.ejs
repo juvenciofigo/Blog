@@ -1,12 +1,12 @@
-<header class="bg-blue-600 h-14 flex  text-white items-center">
-    <nav class="flex flex-row justify-between w-full px-4">
-        <div class="flex flex-row flex-wrap gap-3">
-            <a href="/" class="hover:scale-y-110 transition-all duration-300">GuiaPress</a>
+<header class="bg-blue-600 h-14 flex text-white items-center">
+    <nav class="flex flex-row h-full justify-between w-full px-4">
+        <div class="flex h-full flex-row flex-wrap gap-3">
+            <a href="/" class="hover:scale-y-110 flex items-center h-full transition-all duration-300">GuiaPress</a>
 
-            <div class="group relative"><p>Categorias</p>
+            <div class="group relative flex items-center h-full">
+                <p>Categorias</p>
 
-                
-                <div class="px-3 py-1 rounded-md absolute top-5 flex-col bsolute text-center group-hover:flex hidden bg-blue-400">
+                <div class="px-3 py-1 rounded-md absolute top-[55px] flex-col bsolute text-center group-hover:flex hidden bg-blue-400">
                     <% if (categories.length === 0) { %>
                     <p>Sem categorias disponíveis</p>
                     <% } else { %> <% categories.forEach(category => { %>
@@ -15,10 +15,10 @@
                     <% }) %> <% } %>
                 </div>
             </div>
-            <a href="/articles">Artigos</a>
+            <a class="flex items-center" href="/articles/page/:num">Artigos</a>
         </div>
 
-        <div class="self-end">
+        <div class="flex items-center">
             <a href="/admin">Entrar</a>
         </div>
     </nav>
