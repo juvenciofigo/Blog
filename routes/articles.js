@@ -12,7 +12,7 @@ router.get("/articles/page/:num?", (req, res) => {
     const page = Math.ceil(Number(req.params.num));
     var offset = 0;
     const limit = 2;
-    console.log(page)
+    console.log(page);
 
     if (isNaN(page)) {
         res.redirect("/");
@@ -38,7 +38,7 @@ router.get("/articles/page/:num?", (req, res) => {
             };
 
             Category.findAll().then((categories) => {
-                res.render("./pages/articles", { result: result, categories: categories, headTitle: "Artigos", totalPages:totalPages });
+                res.render("./pages/articles", { result: result, categories: categories, headTitle: "Artigos", totalPages: totalPages });
             });
         })
         .catch((err) => {

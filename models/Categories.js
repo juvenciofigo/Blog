@@ -13,5 +13,5 @@ const Category = connection
         },
     });
 
-Category.sync({ force: false });
+// Category.sync({ force: false });
 module.exports = Category;

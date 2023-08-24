@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 //Routes
 const homePage = require("./routes/index");
 const categoriesRoutes = require("./routes/categories");
-const categoriesRoutes = require("./routes/categories");
+const articlesRoutes = require("./routes/articles");
 const users = require("./routes/users");
 const connection = require("./database/database");
 // view engine setup
