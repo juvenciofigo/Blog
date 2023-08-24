@@ -8,33 +8,53 @@ const Article = require("../models/Articles");
 
 // Show all articles
 
-router.get("/articles/page/:num", (req, res) => {
-    var page = req.params.page
+router.get("/articles/page/:num?", (req, res) => {
+    const page = Math.ceil(Number(req.params.num));
+    var offset = 0;
+    const limit = 2;
+    console.log(page)
 
-    Article.findAndCountAll().then((article)=>{
-        res.json(article);
+    if (isNaN(page)) {
+        res.redirect("/");
+    } else if (page <= 1) {
+        offset = 0;
+    } else {
+        offset = (page - 1) * limit;
+    }
+
+    Article.findAndCountAll({
+        limit: limit,
+        offset: offset,
+        order: [["id", "DESC"]],
     })
-});
+        .then((articles) => {
+            const totalPages = Math.ceil(articles.count / limit);
+            const next = totalPages > page;
 
+            const result = {
+                next: next,
+                articles: articles,
+                page: page,
+            };
 
-
-router.get("/articles", (req, res) => {
-    Article.findAll().then((article) => {
-        Category.findAll().then((categories) => {
-            res.render("./pages/articles", { articles: article, categories: categories });
+            Category.findAll().then((categories) => {
+                res.render("./pages/articles", { result: result, categories: categories, headTitle: "Artigos", totalPages:totalPages });
+            });
+        })
+        .catch((err) => {
+            res.redirect("/");
         });
-    });
 });
 
 // Show one article
 router.get("/articles/:slug", (req, res) => {
-    var slug = req.params.slug;
+    const slug = req.params.slug;
 
     Article.findOne({ where: { slug: slug } })
         .then((article) => {
             if (article != undefined) {
                 Category.findAll().then((categories) => {
-                    res.render("./pages/showArticle", { article: article, categories: categories });
+                    res.render("./pages/showArticle", { article: article, categories: categories, headTitle: "Artigo" });
                 });
             } else {
                 res.render("/");
@@ -52,7 +72,7 @@ router.get("/admin/articles", (req, res) => {
         include: [{ model: Category }],
     })
         .then((article) => {
-            res.render("./pages/admin/articles/articles", { article: article });
+            res.render("./pages/admin/articles/articles", { article: article, headTitle: "Artigos" });
         })
         .catch((error) => {
             console.log(error);
@@ -61,14 +81,14 @@ router.get("/admin/articles", (req, res) => {
 // Create new article
 router.get("/admin/articles/new", (req, res) => {
     Category.findAll().then((categories) => {
-        res.render("./pages/admin/articles/newArticles", { categories: categories });
+        res.render("./pages/admin/articles/newArticles", { categories: categories, headTitle: "Novo artigo" });
     });
 });
 // Save new article
 router.post("/articles/save", (req, res) => {
-    var title = req.body.title;
-    var body = req.body.body;
-    var category = req.body.category;
+    const title = req.body.title;
+    const body = req.body.body;
+    const category = req.body.category;
 
     Article.create({
         title: title,
@@ -84,16 +104,16 @@ module.exports = router;
 
 // Edit article
 router.get("/admin/articles/edit/:id", (req, res) => {
-    var id = req.params.id;
+    const id = req.params.id;
     if (id !== undefined) {
         Article.findByPk(id)
             .then((article) => {
                 Category.findAll().then((categories) => {
-                    res.render("./pages/admin/articles/editArticle", { article: article, categories: categories });
+                    res.render("./pages/admin/articles/editArticle", { article: article, categories: categories, headTitle: "Editar artigo" });
                 });
             })
             .catch((error) => {
-                res.redirect(" /admin/articles");
+                res.redirect("/admin/articles");
             });
     } else {
         res.redirect("");
@@ -102,10 +122,10 @@ router.get("/admin/articles/edit/:id", (req, res) => {
 
 //update article
 router.post("/articles/update", (req, res) => {
-    var id = req.body.id;
-    var title = req.body.title;
-    var body = req.body.body;
-    var category = req.body.category;
+    const id = req.body.id;
+    const title = req.body.title;
+    const body = req.body.body;
+    const category = req.body.category;
 
     Article.update(
         {
@@ -126,7 +146,7 @@ router.post("/articles/update", (req, res) => {
 
 // Delete article
 router.post("/admin/articles/delete", (req, res) => {
-    var id = req.body.id;
+    const id = req.body.id;
     if (id != undefined) {
         if (!isNaN(id)) {
             Article.destroy({

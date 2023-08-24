@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 //Routes
 const homePage = require("./routes/index");
 const categoriesRoutes = require("./routes/categories");
-const articlesRoutes = require("./routes/articles");
+const categoriesRoutes = require("./routes/categories");
+const users = require("./routes/users");
 const connection = require("./database/database");
 // view engine setup
 app.set("view engine", "ejs");
@@ -31,5 +32,5 @@ connection
 app.use("/", homePage);
 app.use("/", categoriesRoutes);
 app.use("/", articlesRoutes);
-
+app.use("/", users);
 app.listen(8080, () => console.log(" listening on"));

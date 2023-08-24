@@ -7,7 +7,7 @@ const Article = require("../models/Articles");
 router.get("/categorias", function (req, res) {
     Article.findAll().then((article) => {
         Category.findAll().then((categories) => {
-            res.render("./pages/categories", { articles: article, categories: categories });
+            res.render("./pages/categories", { articles: article, categories: categories, headTitle: "Categorias" });
         });
     });
 });
@@ -17,7 +17,7 @@ router.get("/categoria/:slug", function (req, res) {
     Category.findOne({ where: { slug: slug }, include: [{ model: Article }] }).then((catSlug) => {
         Article.findAll().then(() => {
             Category.findAll().then((categories) => {
-                res.render("./pages/categoriesSlug", {categories: categories, catSlug: catSlug, articles: catSlug.articles});
+                res.render("./pages/categoriesSlug", { categories: categories, catSlug: catSlug, articles: catSlug.articles, headTitle: "Categorias" });
             });
         });
     });
@@ -28,7 +28,7 @@ router.get("/categoria/:slug", function (req, res) {
 
 // Create a new Category
 router.get("/admin/categories/new", (req, res) => {
-    res.render("./pages/admin/categories/newCategories");
+    res.render("./pages/admin/categories/newCategories", { headTitle: "Nova categoria" });
 });
 
 // Edit categories
@@ -41,7 +41,7 @@ router.get("/admin/categories/edit/:id", (req, res) => {
     Category.findByPk(id)
         .then((category) => {
             if (category != undefined) {
-                res.render("./pages/admin/categories/editCategories", { category: category });
+                res.render("./pages/admin/categories/editCategories", { category: category, headTitle: "Categoria" });
             } else {
                 res.redirect("/admin/categories");
             }
@@ -55,6 +55,7 @@ router.get("/admin/categories", (req, res) => {
     Category.findAll({ order: [["id", "DESC"]] }).then((categories) => {
         res.render("./pages/admin/categories/categories", {
             categories: categories,
+            headTitle: "Categoria",
         });
     });
 });
@@ -92,7 +93,7 @@ router.post("/categories/save", (req, res) => {
             title: title,
             slug: slugify(title),
         }).then(() => {
-            res.redirect("/admin/categories");
+            res.redirect("/admin/categories/new");
         });
     } else {
         res.redirect("/admin/categories");

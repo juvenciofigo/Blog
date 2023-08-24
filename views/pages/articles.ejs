@@ -2,8 +2,28 @@
 <div class="flex flex-col justify-center items-center mx-auto w-full mt-3 text-center">
     <h1 class="text-2xl">Artigos</h1>
     <hr class="w-[calc(100%-15%)] mt-2 mb-4" />
+
+    <div class="w-full flex px-5 border">
+        <span class="flex-1">
+            <% if (result.page > 1 && result.page !== 0 ) { %>
+            <a href="/articles/page/<%= result.page -1 %>"><%= result.page -1 %> <<< Anterior</a>
+            <% } %>
+        </span>
+
+        <span class="flex-1">
+            <% if ( !result.next || result.page>1 || result.page !=0 ) { %>
+            <p>Página <%= result.page%> / <%= totalPages%></p>
+            <% } %>
+        </span>
+
+        <span class="flex-1">
+            <% if ( result.next) { %>
+            <a href="/articles/page/<%= result.page +1 %>"> Proxima >>> <%= result.page +1 %></a>
+            <% } %>
+        </span>
+    </div>
     <div class="w-full md:px-4 mx-auto text-gray-600">
-        <% result.article.rows.forEach(article => { %>
+        <% result.articles.rows.forEach(article => { %>
         <div class="w-full mx-auto max-w-[1200px] border py-2 shadow-md rounded-lg overflow-hidden">
             <h2 class="bg-slate-300 mb-2 text-xl leading-9"><%= article.title %></h2>
 
@@ -13,26 +33,4 @@
         <% }) %>
     </div>
 </div>
-<%- include ("../partials/footer.ejs") %> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%- include ("../partials/footer.ejs") %>
