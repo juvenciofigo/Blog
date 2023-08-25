@@ -28,7 +28,7 @@ router.post("/admin/users/save", function (req, res, next) {
     var password = req.body.password;
 
     User.findOne({ email: email }).then((email) => {
-        if (email === undefined) {
+        // if () {
             var salt = bcrypt.genSaltSync(10);
             var hash = bcrypt.hashSync(password, salt);
 
@@ -39,10 +39,10 @@ router.post("/admin/users/save", function (req, res, next) {
             })
                 .then(() => res.redirect("/"))
                 .catch(() => res.redirect("/"));
-        } else {
-            // Redirecionar de volta ao formulário de criação com mensagem de erro
-            res.redirect("/admin/users/create?error=email");
-        }
+        // } else {
+        //     // Redirecionar de volta ao formulário de criação com mensagem de erro
+        //     res.redirect("/admin/users/create?error=email");
+        // }
     });
 });
 

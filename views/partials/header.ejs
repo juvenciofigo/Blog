@@ -1,25 +1,44 @@
-<header class="bg-blue-600 h-14 flex text-white items-center">
-    <nav class="flex flex-row h-full justify-between w-full px-4">
+<header  class=" bg-blue-600 h-14 flex text-white items-center px-4">
+    <div class="h-full"><a href="/" class="hover:scale-y-110 flex items-center h-full transition-all duration-300">GuiaPress</a></div>
+    <nav class="sm:flex hidden flex-row h-full justify-between w-full px-4">
         <div class="flex h-full flex-row flex-wrap gap-3">
-            <a href="/" class="hover:scale-y-110 flex items-center h-full transition-all duration-300">GuiaPress</a>
-
-            <div class="group relative flex items-center h-full">
-                <p>Categorias</p>
-
-                <div class="px-3 py-1 rounded-md absolute top-[55px] flex-col bsolute text-center group-hover:flex hidden bg-blue-400">
-                    <% if (categories.length === 0) { %>
-                    <p>Sem categorias disponíveis</p>
-                    <% } else { %> <% categories.forEach(category => { %>
-                    <a class="blackw" href="/categoria/<%= category.slug %>"><%= category.title %></a>
-
-                    <% }) %> <% } %>
+            <div class="flex h-full flex-row flex-wrap gap-3">
+                <div class="group relative flex items-center h-full">
+                    <p>Categorias</p>
+                    <div class="px-3 py-1 rounded-md absolute top-[55px] flex-col text-center group-hover:flex hidden bg-blue-400">
+                        <% if (categories.length === 0) { %>
+                        <p>Sem categorias disponíveis</p>
+                        <% } else { %> <% categories.forEach(category => { %>
+                        <a class="blackw" href="/categoria/<%= category.slug %>"><%= category.title %></a>
+                        <% }) %> <% } %>
+                    </div>
                 </div>
+                <a class="flex items-center" href="/articles/page/1">Artigos</a>
             </div>
-            <a class="flex items-center" href="/articles/page/1">Artigos</a>
         </div>
 
         <div class="flex items-center">
             <a href="/admin/users/login">Entrar</a>
         </div>
     </nav>
+
+    <div class="absolute left-0 top-0 h-screen bg-white w-screen border text-black justify-center items-center flex flex-col">
+        <div class="w-full justify-end flex flex-row">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              
+        </div>
+        <div class="flex-1 flex flex-col justify-center items-center">
+            <div>
+                <a href="/articles/page/1">Categorias</a>
+            </div>
+            <div>
+                <a href="/articles/page/1">Artigos</a>
+            </div>
+            <div class="flex items-center">
+                <a href="/admin/users/login">Entrar</a>
+            </div>
+        </div>
+    </div>
 </header>

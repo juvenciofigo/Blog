@@ -21,10 +21,16 @@
     .trtd {
         @apply py-1  border-t border-r;
     }
-    .areaTexto{
-        @apply overflow-y-auto snap-none resize-none h-auto placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-1 pl-2 pr-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1
+    .areaTexto {
+        @apply overflow-y-auto snap-none resize-none h-auto placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-1 pl-2 pr-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1;
     }
-    .blackw{
-        @apply hover:bg-white  hover:text-black
+    .blackw {
+        @apply hover:bg-white  hover:text-black;
+    }
+    .card {
+        @apply snap-center shrink-0 w-[calc(100%-10px)] md:w-80 h-40 ;
+    }
+    .imgCard {
+        @apply snap-center shrink-0  rounded-lg shadow-xl bg-white;
     }
 }

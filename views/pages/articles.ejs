@@ -1,30 +1,30 @@
 <%- include ("../partials/head.ejs") %> <%- include ("../partials/header.ejs") %>
-<div class="flex flex-1 flex-col justify-center items-center mx-auto w-full mt-3 text-center">
+<div class="flex flex-1 border flex-col pt-4 px-2  w-full text-center">
     <h1 class="text-2xl">Artigos</h1>
-    <hr class="w-[calc(100%-15%)] mt-2 mb-4" />
+    <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
 
-    <div class="w-full flex px-5 border">
-        <span class="flex-1">
+    <div class="mx-auto max-w-[1200px]   flex flex-row flex-nowrap rounded-lg px-1 border mb-2 w-full">
+        <div class="flex-1 whitespace-nowrap">
             <% if (result.page > 1 && result.page !== 0 ) { %>
-            <a href="/articles/page/<%= result.page -1 %>"><%= result.page -1 %> <<< Anterior</a>
+            <a href="/articles/page/<%= result.page -1 %>"><%= result.page -1 %>< Anterior</a>
             <% } %>
-        </span>
+        </div>
 
-        <span class="flex-1">
+        <div class="flex-1 whitespace-nowrap">
             <% if ( !result.next || result.page>1 || result.page !=0 ) { %>
-            <p>Página <%= result.page%> / <%= totalPages%></p>
+            <span>Página <%= result.page%> / <%= totalPages%></span>
             <% } %>
-        </span>
+        </div>
 
-        <span class="flex-1">
+        <div class="flex-1 whitespace-nowrap">
             <% if ( result.next) { %>
-            <a href="/articles/page/<%= result.page +1 %>"> Proxima >>> <%= result.page +1 %></a>
+            <a class="" href="/articles/page/<%= result.page +1 %>"> Proxima ><%= result.page +1 %></a>
             <% } %>
-        </span>
+        </div>
     </div>
     <div class="w-full md:px-4 mx-auto text-gray-600">
         <% result.articles.rows.forEach(article => { %>
-        <div class="w-full mx-auto max-w-[1200px] border py-2 shadow-md rounded-lg overflow-hidden">
+        <div class="w-full mx-auto max-w-[1200px]  py-2 shadow-md rounded-lg overflow-hidden">
             <h2 class="bg-slate-300 mb-2 text-xl leading-9"><%= article.title %></h2>
 
             <button class="botao whitespace-nowrap"><a class="whitespace-nowrap" href="/articles/<%= article.slug %>">Ler artigo</a></button>
