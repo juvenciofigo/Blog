@@ -1,6 +1,12 @@
 <%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerlog.ejs") %>
-<div class="overflow-auto h-full bg-gradient-to-r from-indigo-500 to-blue-300 flex flex-col justify-center">
-    <div class="bg-white py-2 px-8 rounded-lg shadow-md md:w-full max-w-lg mx-auto">
+
+
+
+
+<div class=" overflow-auto h-full bg-gradient-to-r from-indigo-500 to-blue-300 flex flex-col justify-center">
+    
+    <div class=" relative bg-white py-2 px-8 rounded-lg shadow-md md:w-full max-w-lg mx-auto">
+        <div class="text-center w-max absolute bottom-10 error-message bg-red-400"></div>
         <h1 class="text-3xl font-semibold mb-6 text-center text-gray-800">Cadastro de Usuário</h1>
         <form action="/admin/users/save" method="post">
             <div class="mb-4">

@@ -18,18 +18,24 @@ function clicado(event, form) {
     form.submit();
 }
 
-function confirmDelete(event, form) {
-    event.preventDefault();
-    var decision = confirm("Voce quer apagar esta categoria?");
-    if (decision) {
-        form.submit();
-    }
-}
+
 function confirmDeleteArt(event, form) {
     event.preventDefault();
-    var decision = confirm("Voce quer apagar este artigo?");
-    if (decision) {
-        form.submit();
+    if (event.target.classList.contains("userDel")) {
+        var decision = confirm("Voce quer remover este usuário?");
+        if (decision) {
+            form.submit();
+        }
+    } else if (event.target.classList.contains("articleDel")) {
+        var decision = confirm("Voce quer apagar este artigo?");
+        if (decision) {
+            form.submit();
+        }
+    }else if (event.target.classList.contains("delCat")) {
+        var decision = confirm("Voce quer apagar esta categoria?");
+        if (decision) {
+            form.submit();
+        }
     }
 }
 function entrou(event) {
@@ -49,3 +55,5 @@ function saiu(event) {
         }, 500);
     }
 }
+
+console.log(2);

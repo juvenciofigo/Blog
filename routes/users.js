@@ -8,7 +8,9 @@ const User = require("../models/Users");
 
 /* GET users listing. */
 router.get("/admin/users", function (req, res, next) {
-    res.send("respond with a resource");
+    User.findAll().then((users) => {
+        res.json( { headTitle: "Usuários ", users: users });
+    });
 });
 
 router.get("/admin/users/create", function (req, res, next) {
@@ -19,13 +21,14 @@ router.get("/admin/users/login", function (req, res, next) {
     res.render("./pages/admin/users/login", { headTitle: "Novo usuário" });
 });
 
+//  Save new user
 router.post("/admin/users/save", function (req, res, next) {
     var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
 
-    User.findOne({ email: email }).then((user) => {
-        if (user == undefined) {
+    User.findOne({ email: email }).then((email) => {
+        if (email === undefined) {
             var salt = bcrypt.genSaltSync(10);
             var hash = bcrypt.hashSync(password, salt);
 
@@ -37,9 +40,30 @@ router.post("/admin/users/save", function (req, res, next) {
                 .then(() => res.redirect("/"))
                 .catch(() => res.redirect("/"));
         } else {
-            res.redirect("/admin/users/create");
+            // Redirecionar de volta ao formulário de criação com mensagem de erro
+            res.redirect("/admin/users/create?error=email");
         }
     });
+});
+
+// Delete a user
+
+router.post("/admin/users/delete", function (req, res) {
+    var id = req.body.id;
+
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            User.destroy({
+                where: { id: id },
+            }).then(() => {
+                res.redirect("/admin/users");
+            });
+        } else {
+            res.redirect("/admin/users");
+        }
+    } else {
+        res.redirect("/admin/users");
+    }
 });
 
 module.exports = router;

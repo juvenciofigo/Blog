@@ -5,7 +5,7 @@
     <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
 
     <div class="md:hidden flex flex-row mb-4 gap-4 ">
-        <form action="" id="articleForm" onsubmit="clicado(event, this)">
+        <form action="" id="usersForm" onsubmit="clicado(event, this)">
             <button class="edit-btn">Editar</button>
             <label>
                 <input
@@ -17,7 +17,7 @@
                     class="w-[50px] overflow-hidden py-1 rounded-md px-2 border placeholder:italic placeholder:text-slate-400 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1" />
             </label>
         </form>
-        <form method="post" class="articleDel" action="/admin/articles/delete" onsubmit="confirmDeleteArt (event, this)">
+        <form method="post" class="userDel" action="/admin/users/delete" onsubmit="confirmDeleteArt (event, this)">
             <button class="delete-btn">Apagar</button>
             <input
                 size="1"
@@ -34,27 +34,25 @@
             <thead class="sticky top-0  bg-gray-200 text-gray-700">
                 <tr>
                     <th class="py-3 px-6">Id</th>
-                    <th class="py-3 px-6">Título</th>
-                    <th class="py-3 px-6">Categoria</th>
+                    <th class="py-3 px-6">Nome</th>
+                    <th class="py-3 px-6">Email</th>
                     <th class="hidden md:block py-3 px-6 ">Ações</th>
                 </tr>
             </thead>
             <tbody class="text-gray-600 bg-white ">
-                <% article.forEach(article => { %>
+                <% users.forEach(users => { %>
                 <tr class="border-b border-gray-200">
-                    <td class="trtd border-l"><%= article.id %></td>
-                    <td class="trtd border-l"><%= article.title %></td>
+                    <td class="trtd border-l"><%= users.id %></td>
+                    <td class="trtd border-l"><%= users.name %></td>
                     <td class="trtd border-l">
-                        <% if (article.category !== null) { %> <%= article.category.title %> <% } else { %>
-                        <span class="text-red-500"><%= "Sem categoria" %></span>
-                        <% } %>
+                         <%= users.email %> 
                     </td>
                     <td class="hidden trtd border-l md:flex flex-wrap justify-around content-around md:justify-around">
                         <form action="">
-                            <button class="edit-btn"><a href="/admin/articles/edit/<%= article.id %>">Editar</a></button>
+                            <button class="edit-btn"><a href="/admin/users/edit/<%= users.id %>">Editar</a></button>
                         </form>
-                        <form method="post" action="/admin/articles/delete" class="inline articleDel" onsubmit="confirmDeleteArt(event, this)">
-                            <input type="hidden" name="id" value="<%= article.id %>" />
+                        <form method="post" action="/admin/users/delete" class="inline userDel" onsubmit="confirmDeleteArt(event, this)">
+                            <input type="hidden" name="id" value="<%= users.id %>" />
                             <button class="delete-btn">Apagar</button>
                         </form>
                     </td>

@@ -1,5 +1,5 @@
 <%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerAdmin.ejs") %>
-<div class="flex flex-col mx-auto w-full mt-3 justify-center items-center text-center">
+<div class="flex flex-col mx-auto w-full h-full mt-3 justify-center items-center text-center">
     <h1 class="text-2xl">Categories adm</h1>
     <hr class="self-center w-[calc(100%-15%)] mt-2 mb-4" />
 
@@ -15,7 +15,7 @@
                     id="category_id"
                     class="w-[50px] overflow-hidden py-1 rounded-md px-2 border placeholder:italic placeholder:text-slate-400 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1" />
             </form>
-            <form method="post" action="/admin/categories/delete" onsubmit="confirmDelete(event, this)">
+            <form method="post" action="/admin/categories/delete" onsubmit="confirmDeleteArt(event, this)">
                 <button class="delete-btn">Deletar</button>
                 <input
                     size="1"
@@ -46,7 +46,7 @@
                         <form action="/admin/categories/edit/<%= category.id %>">
                             <button class="edit-btn">Editar</button>
                         </form>
-                        <form method="post" action="/admin/categories/delete" class="inline" onsubmit="confirmDelete(event, this)">
+                        <form method="post" action="/admin/categories/delete" class="inline delCat" onsubmit="confirmDeleteArt(event, this)">
                             <input type="hidden" name="id" value="<%= category.id %>" />
                             <button class="delete-btn">Deletar</button>
                         </form>

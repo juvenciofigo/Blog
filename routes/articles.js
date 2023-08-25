@@ -147,6 +147,7 @@ router.post("/articles/update", (req, res) => {
 // Delete article
 router.post("/admin/articles/delete", (req, res) => {
     const id = req.body.id;
+    
     if (id != undefined) {
         if (!isNaN(id)) {
             Article.destroy({

@@ -4,5 +4,23 @@
         </div>
     </footer>
 <script src="/javascripts/script.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get("error");
+        
+        if (error === "email") {
+            const errorMessage = "O email já está em uso. Por favor, escolha outro.";
+            const errorMessageElement = document.querySelector(".error-message");
+            errorMessageElement.textContent = errorMessage;
+            setTimeout(() => {
+                errorMessageElement.classList.add("hidden");
+            }, 5000);
+
+        }
+    });
+    
+</script>
 </body>
 </html>
