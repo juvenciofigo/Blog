@@ -5,34 +5,10 @@
 
 @-webkit-keyframes slide-in-elliptic-top-fwd {
     0% {
-        -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
-        transform: translateY(-600px) rotateX(-30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-        opacity: 0;
+        filter: blur(12px) opacity(0);
     }
     100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-        transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% 1400px;
-        transform-origin: 50% 1400px;
-        opacity: 1;
-    }
-}
-@keyframes slide-in-elliptic-top-fwd {
-    0% {
-        -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
-        transform: translateY(-600px) rotateX(-30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-        transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% 1400px;
-        transform-origin: 50% 1400px;
-        opacity: 1;
+        filter: blur(0.01);
     }
 }
 
@@ -49,6 +25,7 @@
         transform-origin: top;
         opacity: 0;
     }
+
     100% {
         -webkit-transform: rotateX(0deg);
         transform: rotateX(0deg);
@@ -58,29 +35,41 @@
     }
 }
 
-.menuc{
-        animation-name:fade ;
-        animation-duration: 1s;
-        /* animation-iteration-count: infinite; */
-        animation-direction: normal ;
-        animation-play-state: running;
-        /* animation-timing-function: ease-in; */
-        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-        animation-fill-mode: both;
-       
+.tracking-in-expand {
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
 }
 
-
-@keyframes fade {
-        0%{
-                transform: scale(0.5);
-        }
-        50%{
-                transform: scale(1.2);
-        }
-
-        100%{
-                transform: scale(1);
-        }
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+
+.swing-in-top-reverse {
+    animation: swing-in-top-reverse 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes swing-in-top-reverse {
+    0% {
+        filter: blur(0.01);
+    }
+    100% {
+        filter: blur(12px) opacity(0);
+    }
+}
+.move{
     
+}
+
+@keyframes move {
+    to {
+        position: 1000;
+    }
+}

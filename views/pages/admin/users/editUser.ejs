@@ -1,0 +1,32 @@
+<%- include ("../../../partials/head.ejs") %> <%- include ("../../../partials/headerlog.ejs") %>
+
+
+
+
+<div class=" overflow-auto h-full bg-gradient-to-r from-indigo-500 to-blue-300 flex flex-col justify-center">
+    
+    <div class=" relative bg-white py-2 px-8 rounded-lg shadow-md md:w-full max-w-lg mx-auto">
+        <div class="text-center w-max absolute bottom-10 error-message bg-red-400"></div>
+        <h1 class="text-3xl font-semibold mb-6 text-center text-gray-800">Atualizar de Usuário</h1>
+        <form action="/admin/users/update" method="post">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-600 mb-1">Nome:</label>
+                <input type="text" required autocomplete="name" placeholder="Digite seu nome" id="name" name="name" value="<%= name %>" class="texto" />
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-600 mb-1">E-mail:</label>
+                <input type="email" required placeholder="Digite seu email" autocomplete="email" id="email" name="email" value="<%= email %>" class="texto" />
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-600 mb-1">Senha:</label>
+                <input type="password" required autocomplete="new-password" id="password" name="password" placeholder="Digite uma nova senha" class="texto" />
+            </div>
+            <input type="hidden" name="id" value="<%= id %>">
+            <div class="flex items-center justify-start space-x-4">
+                <button type="submit" class="botaoSimples bg-blue-500 hover:bg-blue-600 outline-none focus-within:ring focus:ring-blue-200">Atualizar</button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+<%- include ("../../../partials/footer.ejs") %>

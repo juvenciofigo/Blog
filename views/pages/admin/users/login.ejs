@@ -2,16 +2,16 @@
 <div class="overflow-auto h-full bg-gradient-to-r from-indigo-500 to-blue-300 flex flex-col justify-center">
     <div class="bg-white py-5 px-8 rounded-lg shadow-md md:w-full max-w-lg mx-auto">
         <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">Login de Usuário</h2>
-        <form method="post" action="/admin/users/login" >
+        <form method="post" action="/authentication">
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-600 mb-1">E-mail:</label>
                 <input type="email" required id="email" autocomplete="email" name="email" class="texto focus:ring-blue-500" />
             </div>
             <div class="mb-6">
                 <label for="password" class="block text-sm font-medium text-gray-600 mb-1">Senha:</label>
-                <input type="password" required  id="password" name="password" class="texto focus:ring-blue-500" />
+                <input type="password" required id="password" name="password" class="texto focus:ring-blue-500" />
             </div>
-            <div class="flex items-center justify-between space-x-4" >
+            <div class="flex items-center justify-between space-x-4">
                 <button type="submit" class="botaoSimples bg-blue-500 hover:bg-blue-600 outline-none focus-within:ring focus:ring-blue-200">Entrar</button>
             </div>
         </form>

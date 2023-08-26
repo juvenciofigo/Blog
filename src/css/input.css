@@ -4,7 +4,7 @@
 
 @layer components {
     .botao {
-        @apply w-max bg-green-600 rounded-md px-2 text-white hover:bg-green-500 active:bg-green-700 active:scale-95 transition-all duration-500;
+        @apply w-max h-max bg-green-600 rounded-md px-2 text-white hover:bg-green-500 active:bg-green-700 active:scale-95 transition-all duration-500;
     }
     .botaoSimples {
         @apply w-max rounded-md px-2 text-white active:scale-95 transition-all duration-500;
