@@ -1,4 +1,4 @@
-<header  class=" bg-blue-600 h-14 flex text-white items-center px-4">
+<header class="bg-blue-600 h-14 flex text-white items-center px-4 justify-between">
     <div class="h-full"><a href="/" class="hover:scale-y-110 flex items-center h-full transition-all duration-300">GuiaPress</a></div>
     <nav class="sm:flex hidden flex-row h-full justify-between w-full px-4">
         <div class="flex h-full flex-row flex-wrap gap-3">
@@ -22,12 +22,11 @@
         </div>
     </nav>
 
-    <div class="absolute left-0 top-0 h-screen bg-white w-screen border text-black justify-center items-center flex flex-col">
-        <div class="w-full justify-end flex flex-row">
+    <div class="absolute hidden left-0 top-0 h-screen bg-white w-screen border text-black justify-center items-center flex flex-col">
+        <div class="w-full border justify-end flex flex-row">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-              
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
         </div>
         <div class="flex-1 flex flex-col justify-center items-center">
             <div>
@@ -40,5 +39,11 @@
                 <a href="/admin/users/login">Entrar</a>
             </div>
         </div>
+    </div>
+
+    <div class="flex flex-col gap-1 cursor-pointer ">
+        <div class="menuc border-t-2 w-[24px]"></div>
+        <div class="border-t-2 w-[24px]"></div>
+        <div class="menucc border-t-2 w-[24px]"></div>
     </div>
 </header>
