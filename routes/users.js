@@ -109,18 +109,19 @@ router.post("/admin/users/delete", function (req, res) {
     }
 });
 
-router.get("/authentication ", function (req, res) {
+router.post("/authentication", function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
 
-    User.find({ wherw: { email: email } }).then((user) => {
-        if (user == undefined) {
-            var correct = bcrypt.compareSync(password, user.password);
+    User.findOne({ where: { email: email } }).then((user) => {
+        if (user !== undefined && user !== null) {
+            const correct = bcrypt.compareSync(password, user.password);
             if (correct) {
                 req.session.user = {
                     id: user.id,
                     email: user.email,
                 };
+                res.json(req.session.user);
             } else {
                 res.redirect("/admin/users/login"); //erro de senha
             }

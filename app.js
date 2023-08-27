@@ -5,6 +5,14 @@ const favicon = require("serve-favicon");
 const path = require("path");
 const session = require("express-session");
 
+// session
+app.use(
+    session({
+        secret: "qualquercoisamesmo",
+        cookie: { maxAge: 30000 },
+    })
+);
+
 //Routes
 const homePage = require("./routes/index");
 const categoriesRoutes = require("./routes/categories");
@@ -37,8 +45,5 @@ app.use("/", homePage);
 app.use("/", categoriesRoutes);
 app.use("/", articlesRoutes);
 app.use("/", users);
-
-app.get("/session", (req, res) => {});
-app.get("/read", (req, res) => {});
 
 app.listen(8080, () => console.log(" listening on"));
