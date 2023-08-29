@@ -27,10 +27,5 @@
     .blackw {
         @apply hover:bg-white  hover:text-black;
     }
-    .card {
-        @apply snap-center shrink-0 w-[calc(100%-10px)] md:w-80 h-40 ;
-    }
-    .imgCard {
-        @apply snap-center shrink-0  rounded-lg shadow-xl bg-white;
-    }
+ 
 }

@@ -22,26 +22,28 @@
         </div>
     </nav>
 
-    <div class="absolute hidden left-0 top-0 h-screen bg-white w-screen border text-black justify-center items-center flex flex-col">
-        <div class="w-full border justify-end flex flex-row">
+    <div class="absolute hidden z-50  left-0 top-0 h-screen backdrop-blur-[4px] w-screen border text-black justify-center items-center flex-col menulist">
+        <div class="w-full h-14 justify-end px-4  flex flex-row items-center closeMenu bg-blue-600 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </div>
-        <div class="flex-1 flex flex-col justify-center items-center">
-            <div>
-                <a href="/articles/page/1">Categorias</a>
-            </div>
-            <div>
-                <a href="/articles/page/1">Artigos</a>
-            </div>
-            <div class="flex items-center">
-                <a href="/admin/users/login">Entrar</a>
+        <div class="relative h-max flex-1 flex justify-center ">
+            <div class="absolute top-11 flex flex-col justify-center items-center h-max rounded-3xl shadow-2xl py-5 px-20 text-black text-xl font-medium">
+                <div>
+                    <a href="/categorias">Categorias</a>
+                </div>
+                <div>
+                    <a href="/articles/page/1">Artigos</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="/admin/users/login">Entrar</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="flex flex-col gap-1 cursor-pointer ">
+    <div class="flex sm:hidden flex-col gap-1 cursor-pointer menuPhone" >
         <div class="menuc border-t-2 w-[24px]"></div>
         <div class="border-t-2 w-[24px]"></div>
         <div class="menucc border-t-2 w-[24px]"></div>

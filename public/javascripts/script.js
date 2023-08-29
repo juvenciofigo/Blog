@@ -1,13 +1,22 @@
 const filho = document.querySelector(".filho");
-
 const categoryForm = document.getElementById("categoryForm");
 const categoryIdInput = document.getElementById("category_id");
+document.querySelector(".menuPhone").addEventListener("click", () =>{
+    document.querySelector(".menulist").classList.toggle("hidden");
+    document.querySelector(".menulist").classList.toggle("flex");
+})
+document.querySelector(".closeMenu").addEventListener("click", () =>{
+    document.querySelector(".menulist").classList.toggle("hidden");
+    document.querySelector(".menulist").classList.toggle("flex");
+})
 
-categoryForm.addEventListener("submit", function (event) {
-    const categoryId = categoryIdInput.value;
-    const actionUrl = `/admin/categories/edit/${categoryId}`;
-    categoryForm.setAttribute("action", actionUrl);
-});
+
+
+
+
+
+
+
 
 function clicado(event, form) {
     event.preventDefault();
@@ -56,4 +65,55 @@ function saiu(event) {
     }
 }
 
-console.log(2);
+
+const carousel = document.querySelector('.carousel');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+
+let currentIndex = 0;
+const images = carousel.querySelectorAll('img');
+console.log(55)
+const numImages = images.length;
+const slideWidth = images[0].clientWidth;
+
+function showSlide(index) {
+  if (index < 0) {
+    currentIndex = numImages - 1;
+  } else if (index >= numImages) {
+    currentIndex = 0;
+  } else {
+    currentIndex = index;
+  }
+
+  const translateX = -currentIndex * slideWidth;
+  carousel.style.transform = `translateX(${translateX}px)`;
+}
+
+prevButton.addEventListener('click', () => {
+  showSlide(currentIndex - 1);
+});
+
+nextButton.addEventListener('click', () => {
+  showSlide(currentIndex + 1);
+});
+
+setInterval(() => {
+  showSlide(currentIndex + 1);
+}, 3000);
+
+// Atualiza a largura do carrossel ao redimensionar a janela
+window.addEventListener('resize', () => {
+  showSlide(currentIndex);
+});
+
+// Inicializa o carrossel
+showSlide(currentIndex);
+
+
+
+categoryForm.addEventListener("submit", function (event) {
+    const categoryId = categoryIdInput.value;
+    const actionUrl = `/admin/categories/edit/${categoryId}`;
+    categoryForm.setAttribute("action", actionUrl);
+});
+console.log(5)

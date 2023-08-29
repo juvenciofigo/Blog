@@ -1,50 +1,39 @@
 <%- include ("partials/head.ejs") %> <%- include ("partials/header.ejs") %>
-<div class="flex-1 flex flex-col gap-4 0 py-4 px-2 md:p-5 overflow-auto">
-    <section class="bg-indigo-500 py-2 md:py-14 text-white rounded-lg flex-1">
+<div class=" flex-1 flex flex-col gap-4 0 py-3 px-2 md:p-4 overflow-auto mb-9">
+    <section class="bg-indigo-500 h-max py-2 text-white rounded-lg ">
         <div class="container mx-auto text-center">
-            <h2 class="text-2xl md:text-4xl font-semibold mb-4 tracking-in-expand">Bem-vindo ao Meu Blog</h2>
+            <h2 class="text-2xl md:text-4xl font-semibold mb-4 tracking-in-expand z-0">Bem-vindo ao Meu Blog</h2>
             <p class="text-lg">Leia nossos artigos incríveis sobre tecnologia, estilo de vida e muito mais!</p>
             <a href="/articles/page/1" class="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white md:py-3 py-1 px-3 md:px- 6 rounded-lg">Explorar Artigos</a>
         </div>
     </section>
 
-    <section class="flex-1 flex flex-col p-4 rounded-lg">
+    <section class="flex flex-col rounded-lg border flex-1 border-black">
         <h2 class="md:text-3xl text-2xl text-center font-semibold text-gray-800 mb-6">Artigos em Destaque</h2>
 
-        <div class="w-full flex gap-4 snap-x snap-mandatory overflow-x-auto pb-2">
-            <div class="w-10"></div>
-
-            <div class="card">
+        <div class="carousel-container flex-1 w-full overflow-hidden relative">
+            <div class="carousel h-full flex gap-3 transition-transform duration-500 ease-in-out w-full">
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
-            </div>
-            <div class="card">
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
-            </div>
-            <div class="card">
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
-            </div>
-            <div class="card">
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
-            </div>
-            <div class="card">
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
-            </div>
-            <div class="card">
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
                 <img
-                    class="imgCard"
-                    src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80" />
+                    class="w-full h-auto object-fill"
+                    src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=320&amp;h=160&amp;q=80"/>
             </div>
-            <div class="w-10"></div>
+            <button class="prev-button absolute p-2 bg-[#333] text-[#fff] cursor-pointer left-2">Anterior</button>
+            <button class="next-button absolute p-2 bg-[#333] text-[#fff] cursor-pointer right-2">Próximo</button>
         </div>
     </section>
 </div>
