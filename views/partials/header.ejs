@@ -1,10 +1,12 @@
-<header class="bg-blue-600 h-14 flex text-white items-center px-4 justify-between">
+<header class="z-10 bg-blue-600 h-14 flex text-white items-center px-4 justify-between">
     <div class="h-full"><a href="/" class="hover:scale-y-110 flex items-center h-full transition-all duration-300">GuiaPress</a></div>
     <nav class="sm:flex hidden flex-row h-full justify-between w-full px-4">
         <div class="flex h-full flex-row flex-wrap gap-3">
             <div class="flex h-full flex-row flex-wrap gap-3">
                 <div class="group relative flex items-center h-full">
-                    <p>Categorias</p>
+                    <a href="/categorias">
+                        <p>Categorias</p>
+                    </a>
                     <div class="px-3 py-1 rounded-md absolute top-[55px] flex-col text-center group-hover:flex hidden bg-blue-400">
                         <% if (categories.length === 0) { %>
                         <p>Sem categorias disponíveis</p>
@@ -18,32 +20,28 @@
         </div>
 
         <div class="flex items-center">
-            <a href="/admin/users/login">Entrar</a>
+            <a href="/login">Entrar</a>
         </div>
     </nav>
 
-    <div class="absolute hidden z-50  left-0 top-0 h-screen backdrop-blur-[4px] w-screen border text-black justify-center items-center flex-col menulist">
-        <div class="w-full h-14 justify-end px-4  flex flex-row items-center closeMenu bg-blue-600 rounded-lg">
+    <div class="absolute hidden z-50 left-0 top-0 h-screen backdrop-blur-[4px] w-screen border text-black justify-center items-center flex-col menulist closeMenu">
+        <div class="w-full h-14 justify-end px-4 flex flex-row items-center closeMenu bg-blue-600 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </div>
-        <div class="relative h-max flex-1 flex justify-center ">
-            <div class="absolute top-11 flex flex-col justify-center items-center h-max rounded-3xl shadow-2xl py-5 px-20 text-black text-xl font-medium">
-                <div>
-                    <a href="/categorias">Categorias</a>
-                </div>
-                <div>
-                    <a href="/articles/page/1">Artigos</a>
-                </div>
-                <div class="flex items-center">
-                    <a href="/admin/users/login">Entrar</a>
-                </div>
+        <div class="h-max flex-1 flex justify-center">
+            <div class="top-11 flex flex-col justify-center w-72 items-center h-max rounded-3xl shadow-2xl text-black text-xl font-medium text-center gap-3">
+                <a  class="w-full blackw rounded-t-3xl transform  transition-all duration-700" href="/categorias">Categorias</a>
+
+                <a  class="w-full blackw rounded-3xl transform  transition-all duration-700" href="/articles/page/1">Artigos</a>
+
+                <a class="w-full blackw rounded-b-3xl transform  transition-all duration-700" href="/login">Entrar</a>
             </div>
         </div>
     </div>
 
-    <div class="flex sm:hidden flex-col gap-1 cursor-pointer menuPhone" >
+    <div class="flex sm:hidden flex-col gap-1 cursor-pointer menuPhone">
         <div class="menuc border-t-2 w-[24px]"></div>
         <div class="border-t-2 w-[24px]"></div>
         <div class="menucc border-t-2 w-[24px]"></div>

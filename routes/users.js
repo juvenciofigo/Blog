@@ -4,21 +4,27 @@ const Category = require("../models/Categories");
 const Article = require("../models/Articles");
 const bcrypt = require("bcryptjs");
 const User = require("../models/Users");
+const adminAuth = require("../middleware/adminAuth");
 
 /* GET users listing. */
-router.get("/admin/users", function (req, res, next) {
+router.get("/admin/users", adminAuth, function (req, res, next) {
     User.findAll().then((users) => {
         res.render("./pages/admin/users/users", { headTitle: "Usuários ", users: users });
     });
 });
 
 //login
-router.get("/admin/users/login", function (req, res, next) {
-    res.render("./pages/admin/users/login", { headTitle: "Novo usuário" });
+router.get("/login", function (req, res, next) {
+    if (req.session.user != undefined) {
+        res.redirect("/admin/categories");
+    } else {
+        res.render("./pages/admin/users/login", { headTitle: "Login" });
+        //res.redirect("/login");
+    }
 });
 
 // Edit a user
-router.get("/admin/users/edit/:id", function (req, res) {
+router.get("/admin/users/edit/:id", adminAuth, function (req, res) {
     const id = req.params.id;
 
     User.findByPk(id).then(function (user) {
@@ -30,12 +36,12 @@ router.get("/admin/users/edit/:id", function (req, res) {
 });
 
 // Create a new user
-router.get("/admin/users/create", function (req, res, next) {
+router.get("/admin/users/create", adminAuth, function (req, res, next) {
     res.render("./pages/admin/users/create", { headTitle: "Novo usuário" });
 });
 
 //  Update user
-router.post("/admin/users/update", function (req, res, next) {
+router.post("/admin/users/update", adminAuth, function (req, res, next) {
     const id = req.body.id;
     const name = req.body.name;
     const email = req.body.email;
@@ -67,7 +73,7 @@ router.post("/admin/users/update", function (req, res, next) {
 });
 
 //  Save new user
-router.post("/admin/users/save", function (req, res, next) {
+router.post("/admin/users/save", adminAuth, function (req, res, next) {
     var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
@@ -90,8 +96,13 @@ router.post("/admin/users/save", function (req, res, next) {
     });
 });
 
+router.get("/logout", (req, res) => {
+    req.session.user = undefined;
+    res.redirect("/");
+});
+
 // Delete a user
-router.post("/admin/users/delete", function (req, res) {
+router.post("/admin/users/delete", adminAuth, function (req, res) {
     var id = req.body.id;
 
     if (id != undefined) {
@@ -121,7 +132,7 @@ router.post("/authentication", function (req, res) {
                     id: user.id,
                     email: user.email,
                 };
-                res.json(req.session.user);
+                res.redirect("/admin/categories");
             } else {
                 res.redirect("/admin/users/login"); //erro de senha
             }

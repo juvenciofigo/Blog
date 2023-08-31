@@ -9,7 +9,9 @@ const session = require("express-session");
 app.use(
     session({
         secret: "qualquercoisamesmo",
-        cookie: { maxAge: 30000 },
+        resave: false,
+        saveUninitialized: true,
+        cookie: { maxAge: 3000000 },
     })
 );
 
