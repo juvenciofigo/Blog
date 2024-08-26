@@ -6,3 +6,5 @@ function adminAuth(req, res, next) {
     }
 }
 module.exports = adminAuth;
+
+// Lutar por algiem nao é tentar fazer com a alguem que gosta da outra pessoa goste de Ti. So vais se machucar

@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+
 const Category = require("../models/Categories");
 const Article = require("../models/Articles");
 const bcrypt = require("bcryptjs");

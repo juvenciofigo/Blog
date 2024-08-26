@@ -43,6 +43,7 @@
             { value: "Email", title: "Email" },
         ],
         ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        
         init_instance_callback: () => {
             const contentElement = document.getElementById("content");
             const tinymceEditor = tinymce.get("tinymce");
